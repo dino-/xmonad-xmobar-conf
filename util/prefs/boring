@@ -35,3 +35,4 @@
 (^|/)autom4te\.cache($|/)
 xmonad-i386-linux
 xmonad.errors
+history
