@@ -167,11 +167,7 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
     -- mod-shift-{w,e,r}, Move client to screen 1, 2, or 3
     --
     [((m .|. modMask, key), screenWorkspace sc >>= flip whenJust (windows . f))
---        | (key, sc) <- zip [xK_w, xK_e, xK_r] [0..]
-        -- This screen order reflects my setup with nVidia Twinview
-        -- and my right-side, bigger screen in 'middle' position,
-        -- as xmonad screen 0
-        | (key, sc) <- zip [xK_w, xK_e, xK_r] [1, 0, 2]
+        | (key, sc) <- zip [xK_w, xK_e, xK_r] [0..]
         , (f, m) <- [(W.view, 0), (W.shift, shiftMask)]]
 
 
