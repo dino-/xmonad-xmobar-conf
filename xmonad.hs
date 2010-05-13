@@ -15,7 +15,8 @@ import qualified Data.Map        as M
 
 -- Added by Dino
 import XMonad.Hooks.ManageDocks
-import XMonad.Layout.Tabbed
+--import XMonad.Layout.Tabbed
+import XMonad.Layout.ThreeColumns
 import XMonad.Prompt
 import XMonad.Prompt.Window
 
@@ -204,10 +205,16 @@ myMouseBindings (XConfig {XMonad.modMask = modMask}) = M.fromList $
 -- Added by Dino for dzen
 --myLayout = tiled ||| Mirror tiled ||| Full
 --myLayout = avoidStruts $ tiled ||| Mirror tiled ||| Full
-myLayout = avoidStruts $ tiled ||| Mirror tiled ||| Full ||| simpleTabbed
-  where
-     -- default tiling algorithm partitions the screen into two panes
-     tiled   = Tall nmaster delta ratio
+--myLayout = avoidStruts $ tiled ||| Mirror tiled ||| Full ||| simpleTabbed
+myLayout = avoidStruts $
+   tiled |||
+   Mirror tiled |||
+   Full |||
+   ThreeCol nmaster delta (1/3) |||
+   ThreeColMid nmaster delta ratio
+   where
+      -- default tiling algorithm partitions the screen into two panes
+      tiled   = Tall nmaster delta ratio
 
       -- The default number of windows in the master pane
       nmaster = 1
