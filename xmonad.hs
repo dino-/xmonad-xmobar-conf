@@ -243,10 +243,14 @@ myLayout = avoidStruts $
 -- Added by Dino for dzen
 --myManageHook = composeAll
 myManageHook = manageDocks <+> composeAll
-    [ className =? "MPlayer"        --> doFloat
-    , className =? "Gimp"           --> doFloat
-    , resource  =? "desktop_window" --> doIgnore
-    , resource  =? "kdesktop"       --> doIgnore ]
+   [ className =? "MPlayer"        --> doFloat
+
+   -- Not doing a bad job with managing gimp panals with a layout
+   -- , className =? "Gimp"           --> doFloat
+
+   , resource  =? "desktop_window" --> doIgnore
+   , resource  =? "kdesktop"       --> doIgnore
+   ]
 
 -- Whether focus follows the mouse pointer.
 myFocusFollowsMouse :: Bool
