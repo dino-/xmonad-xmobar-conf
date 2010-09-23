@@ -15,7 +15,7 @@ import qualified Data.Map        as M
 
 -- Added by Dino
 import XMonad.Hooks.ManageDocks
---import XMonad.Layout.Tabbed
+import XMonad.Layout.Tabbed
 import XMonad.Layout.ThreeColumns
 import XMonad.Prompt
 import XMonad.Prompt.Window
@@ -211,7 +211,8 @@ myLayout = avoidStruts $
    Mirror tiled |||
    Full |||
    ThreeCol nmaster delta (1/3) |||
-   ThreeColMid nmaster delta ratio
+   ThreeColMid nmaster delta ratio |||
+   simpleTabbed
    where
       -- default tiling algorithm partitions the screen into two panes
       tiled   = Tall nmaster delta ratio
