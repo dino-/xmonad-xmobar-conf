@@ -151,6 +151,9 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
     -- for window prompt
     , ((modMask .|. shiftMask, xK_g     ), windowPromptGoto  defaultXPConfig)
     , ((modMask .|. shiftMask, xK_b     ), windowPromptBring defaultXPConfig)
+
+    -- new uzbl browser
+    , ((modMask              , xK_b     ), spawn "uzbl-browser")
     ]
     ++
 
