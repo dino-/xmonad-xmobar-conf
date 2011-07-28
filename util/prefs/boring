@@ -34,5 +34,6 @@
 (^|/)Thumbs\.db$
 (^|/)autom4te\.cache($|/)
 xmonad-i386-linux
+xmonad-x86_64-linux
 xmonad.errors
 history
