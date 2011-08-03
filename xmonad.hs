@@ -80,7 +80,7 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
     [ ((modMask .|. shiftMask, xK_Return), spawn $ XMonad.terminal conf)
 
     -- launch dmenu
-    , ((modMask,               xK_p     ), spawn "exe=`dmenu_run | dmenu` && eval \"exec $exe\"")
+    , ((modMask,               xK_p     ), spawn "dmenu_run")
 
     -- launch gmrun
     , ((modMask .|. shiftMask, xK_p     ), spawn "gmrun")
