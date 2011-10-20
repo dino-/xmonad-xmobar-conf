@@ -147,10 +147,6 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
 
     -- launch xscreensaver-command -lock
     , ((modMask .|. shiftMask, xK_l     ), spawn "xscreensaver-command -lock")
-
-    -- for window prompt
-    , ((modMask .|. shiftMask, xK_g     ), windowPromptGoto  defaultXPConfig)
-    , ((modMask .|. shiftMask, xK_b     ), windowPromptBring defaultXPConfig)
     ]
     ++
 
