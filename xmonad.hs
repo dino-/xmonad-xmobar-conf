@@ -51,7 +51,8 @@ myModMask       = mod4Mask  -- The Windows logo key
 -- Set numlockMask = 0 if you don't have a numlock key, or want to treat
 -- numlock status separately.
 --
-myNumlockMask   = mod2Mask
+-- 2012-06-24 no longer needed
+--myNumlockMask   = mod2Mask
 
 -- The default number of workspaces (virtual screens) and their names.
 -- By default we use numeric strings, but any string may be used as a
@@ -295,7 +296,8 @@ defaults = defaultConfig {
         focusFollowsMouse  = myFocusFollowsMouse,
         borderWidth        = myBorderWidth,
         modMask            = myModMask,
-        numlockMask        = myNumlockMask,
+-- 2012-06-24 no longer needed
+--        numlockMask        = myNumlockMask,
         workspaces         = myWorkspaces,
         normalBorderColor  = myNormalBorderColor,
         focusedBorderColor = myFocusedBorderColor,
