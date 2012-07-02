@@ -1,0 +1,67 @@
+Config
+   { font = "-*-Fixed-Bold-R-Normal-*-14-*-*-*-*-*-*-*"
+   --{ font = "8x13"
+   , bgColor = "black"
+   , fgColor = "grey"
+   , border = NoBorder
+   , borderColor = "white"
+   , position = Top
+   , lowerOnStart = True
+   , commands =
+      [ Run BatteryP ["BAT1"]
+         [ "-t", "Batt: <left>%"
+         , "-L", "10", "-H", "80", "-p", "3"
+         , "--"
+         , "-O", "<fc=green>On</fc> - ", "-o", ""
+         , "-L", "-15", "-H", "-5"
+         , "-l", "red", "-m", "blue", "-h", "green"
+         ] 600
+--      , Run Com "/home/dino/bin/getcoretemp.sh" [] "coreTemp" 100
+      , Run CoreTemp
+         [ "-t", "TempC: <core0> <core1> <core2> <core3>"
+--         [ "-t", "<core0>C"
+         , "-L", "40", "-H", "60"
+         , "-l", "lightblue", "-n", "gray90", "-h", "red"
+         ] 50
+      , Run Date "%Y-%b-%0d %a %H:%M:%S" "date" 10
+-- Don't like how this one works
+--      , Run MBox
+--         [ ("I", "/var/mail/dino", "red")
+--         , ("w", "airdat", "red")
+--         , ("s", "spam", "red")
+--         ]
+--         [ "-d", "~/mail"
+--         ] "mbox"
+      , Run Memory ["-t","Mem: <usedratio>%"] 10
+      , Run MultiCpu
+         [ "-t", "Cpu: <bar> <total0> <total1> <total2> <total3> <total4> <total5> <total6> <total7>"
+         , "-L", "3", "-H", "50", "--normal", "green", "--high", "red"
+         ] 10
+      , Run Network "eth0"
+         [ "-L", "0", "-H", "32", "--normal", "green", "--high", "red"] 10
+      , Run Network "wlan0"
+         ["-L", "0", "-H", "32", "--normal", "green", "--high", "red"] 10
+      , Run Swap [] 10
+-- Not working at this time
+--      , Run ThermalZone 0
+--         [ "-t", "CPU temp: <temp>C"
+--         , "-L", "52", "-H", "68"
+--         , "--normal", "green", "--high", "red", "--low", "lightblue"
+--         ] 10
+      , Run Weather "KRDU"
+--         [ "-t", "KRDU: <tempF>F <skyCondition>"
+         [ "-t", "KRDU: <tempF>F rh <rh>% <skyCondition>"
+         , "-L", "34", "-H", "93"
+         , "--normal", "green", "--high", "red", "--low", "lightblue"
+         ] 36000
+      ]
+   , sepChar = "%"
+   , alignSep = "}{"
+
+   , template = "%multicpu% * %coretemp% | %memory% * %swap% | %eth0% %wlan0% }{ %battery% | %KRDU% | <fc=#ee9a00>%date%</fc>"
+--   , template = "%multicpu% * %coreTemp% | %memory% * %swap% | %eth0% * %wlan0% }{ %KRDU% | <fc=#ee9a00>%date%</fc>"
+--   , template = "%multicpu% * %coreTemp% | %memory% * %swap% | %eth0% * %wlan0% }{ %battery% | %KRDU% | <fc=#ee9a00>%date%</fc>"
+
+--   , template = "%multicpu% | %memory% * %swap% | %eth0% * %wlan0% }{ %thermal0% | %battery% | %KRDU% | <fc=#ee9a00>%date%</fc>"
+--   , template = "%multicpu% | %coretemp% | %memory% * %swap% | %eth0% * %wlan0% }{ %battery% | %KRDU% | <fc=#ee9a00>%date%</fc>"
+   }
