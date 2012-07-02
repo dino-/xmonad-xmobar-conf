@@ -18,8 +18,7 @@ Config
          ] 600
 --      , Run Com "/home/dino/bin/getcoretemp.sh" [] "coreTemp" 100
       , Run CoreTemp
-         [ "-t", "TempC: <core0> <core1> <core2> <core3>"
---         [ "-t", "<core0>C"
+         [ "-t", "<core0>C"
          , "-L", "40", "-H", "60"
          , "-l", "lightblue", "-n", "gray90", "-h", "red"
          ] 50
@@ -34,7 +33,7 @@ Config
 --         ] "mbox"
       , Run Memory ["-t","Mem: <usedratio>%"] 10
       , Run MultiCpu
-         [ "-t", "Cpu: <bar> <total0> <total1> <total2> <total3> <total4> <total5> <total6> <total7>"
+         [ "-t", "Cpu: <total0> <total1> <total2> <total3> <total4> <total5> <total6> <total7>"
          , "-L", "3", "-H", "50", "--normal", "green", "--high", "red"
          ] 10
       , Run Network "eth0"
@@ -42,12 +41,6 @@ Config
       , Run Network "wlan0"
          ["-L", "0", "-H", "32", "--normal", "green", "--high", "red"] 10
       , Run Swap [] 10
--- Not working at this time
---      , Run ThermalZone 0
---         [ "-t", "CPU temp: <temp>C"
---         , "-L", "52", "-H", "68"
---         , "--normal", "green", "--high", "red", "--low", "lightblue"
---         ] 10
       , Run Weather "KRDU"
 --         [ "-t", "KRDU: <tempF>F <skyCondition>"
          [ "-t", "KRDU: <tempF>F rh <rh>% <skyCondition>"
@@ -59,9 +52,4 @@ Config
    , alignSep = "}{"
 
    , template = "%multicpu% * %coretemp% | %memory% * %swap% | %eth0% %wlan0% }{ %battery% | %KRDU% | <fc=#ee9a00>%date%</fc>"
---   , template = "%multicpu% * %coreTemp% | %memory% * %swap% | %eth0% * %wlan0% }{ %KRDU% | <fc=#ee9a00>%date%</fc>"
---   , template = "%multicpu% * %coreTemp% | %memory% * %swap% | %eth0% * %wlan0% }{ %battery% | %KRDU% | <fc=#ee9a00>%date%</fc>"
-
---   , template = "%multicpu% | %memory% * %swap% | %eth0% * %wlan0% }{ %thermal0% | %battery% | %KRDU% | <fc=#ee9a00>%date%</fc>"
---   , template = "%multicpu% | %coretemp% | %memory% * %swap% | %eth0% * %wlan0% }{ %battery% | %KRDU% | <fc=#ee9a00>%date%</fc>"
    }
