@@ -8,7 +8,7 @@ Config
    , position = Top
    , lowerOnStart = True
    , commands =
-      [ Run BatteryP ["BAT1"]
+      [ Run BatteryP ["BAT0"]
          [ "-t", "Batt: <left>%"
          , "-L", "10", "-H", "80", "-p", "3"
          , "--"
@@ -16,31 +16,19 @@ Config
          , "-L", "-15", "-H", "-5"
          , "-l", "red", "-m", "blue", "-h", "green"
          ] 600
---      , Run Com "/home/dino/bin/getcoretemp.sh" [] "coreTemp" 100
       , Run CoreTemp
          [ "-t", "<core0>C"
          , "-L", "40", "-H", "60"
          , "-l", "lightblue", "-n", "gray90", "-h", "red"
          ] 50
       , Run Date "%Y-%b-%0d %a %H:%M:%S" "date" 10
--- Don't like how this one works
---      , Run MBox
---         [ ("I", "/var/mail/dino", "red")
---         , ("w", "airdat", "red")
---         , ("s", "spam", "red")
---         ]
---         [ "-d", "~/mail"
---         ] "mbox"
+      , Run DynNetwork
+         ["-L", "0", "-H", "32", "--normal", "green", "--high", "red"] 10
       , Run Memory ["-t","Mem: <usedratio>%"] 10
       , Run MultiCpu
-         [ "-t", "Cpu: <total0> <total1> <total2> <total3> <total4> <total5> <total6> <total7>"
+         [ "-t", "Cpu: <total0> <total1> <total2> <total3>"
          , "-L", "3", "-H", "50", "--normal", "green", "--high", "red"
          ] 10
-      , Run Network "eth0"
-         [ "-L", "0", "-H", "32", "--normal", "green", "--high", "red"] 10
-      , Run Network "wlan0"
-         ["-L", "0", "-H", "32", "--normal", "green", "--high", "red"] 10
-      , Run Swap [] 10
       , Run Weather "KRDU"
          [ "-t", "KRDU: <tempF>F <rh>%"
          , "-L", "34", "-H", "93"
@@ -50,5 +38,5 @@ Config
    , sepChar = "%"
    , alignSep = "}{"
 
-   , template = "%multicpu% * %coretemp% | %memory% * %swap% | %eth0% %wlan0% }{ %battery% | %KRDU% | <fc=#ee9a00>%date%</fc>"
+   , template = "%multicpu% * %coretemp% | %memory% | %dynnetwork% }{ %battery% | %KRDU% | <fc=#ee9a00>%date%</fc>"
    }
