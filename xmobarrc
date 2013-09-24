@@ -7,6 +7,10 @@ Config
    , borderColor = "white"
    , position = Top
    , lowerOnStart = True
+   , allDesktops = True  -- default
+   , overrideRedirect = False  -- NOT default
+   , hideOnStart = False
+   , persistent = True
    , commands =
       [ Run BatteryP ["BAT0"]
          [ "-t", "Batt: <left>%"
