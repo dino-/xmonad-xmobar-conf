@@ -1,8 +1,7 @@
 Config
-   { font = "-*-Fixed-Bold-R-Normal-*-14-*-*-*-*-*-*-*"
-   --{ font = "8x13"
+   { font = "xft:Inconsolata:size=11"
    , bgColor = "black"
-   , fgColor = "grey"
+   , fgColor = "white"
    , border = NoBorder
    , borderColor = "white"
    , position = Top
