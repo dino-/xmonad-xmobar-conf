@@ -1,10 +1,14 @@
 Config
    { font = "xft:Inconsolata:size=11"
+   , additionalFonts = []        -- default: []
    , borderColor = "white"
    , border = NoBorder
    , bgColor = "black"
    , fgColor = "white"
+   , alpha = 255                 -- default: 255
    , position = Top
+   , textOffset = -1             -- default: -1
+   , iconOffset = -1             -- default: -1
    , lowerOnStart = True
    , pickBroadest = False        -- default: False
    , persistent = True
