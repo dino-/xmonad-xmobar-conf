@@ -16,6 +16,7 @@ import qualified Data.Map        as M
 
 -- Added by Dino
 import XMonad.Hooks.ManageDocks
+import XMonad.Layout.MultiColumns
 import XMonad.Layout.Tabbed
 import XMonad.Layout.ThreeColumns
 import XMonad.Prompt
@@ -197,7 +198,8 @@ myLayout = avoidStruts $
    tiled |||
    Mirror tiled |||
    Full |||
-   ThreeCol nmaster delta (1/3) |||
+   multiCol [1] 1 0.01 (-0.5) |||  -- Many equal columns!
+   ThreeCol nmaster delta (1/3) |||  -- Three equal columns with resizing
    ThreeColMid nmaster delta ratio |||
    simpleTabbed
    where
