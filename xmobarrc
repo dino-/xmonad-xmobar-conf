@@ -6,8 +6,10 @@ Config
    , borderColor = "white"
    , position = Top
    , lowerOnStart = True
-   , allDesktops = True  -- default
-   , overrideRedirect = False  -- NOT default
+   , allDesktops = True          -- default: True
+   , overrideRedirect = False    -- default: True
+   , pickBroadest = False        -- default: False
+   , iconRoot = "."              -- default: "."
    , hideOnStart = False
    , persistent = True
    , commands =
