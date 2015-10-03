@@ -1,17 +1,17 @@
 Config
    { font = "xft:Inconsolata:size=11"
+   , borderColor = "white"
+   , border = NoBorder
    , bgColor = "black"
    , fgColor = "white"
-   , border = NoBorder
-   , borderColor = "white"
    , position = Top
    , lowerOnStart = True
+   , pickBroadest = False        -- default: False
+   , persistent = True
+   , hideOnStart = False
+   , iconRoot = "."              -- default: "."
    , allDesktops = True          -- default: True
    , overrideRedirect = False    -- default: True
-   , pickBroadest = False        -- default: False
-   , iconRoot = "."              -- default: "."
-   , hideOnStart = False
-   , persistent = True
    , commands =
       [ Run BatteryP ["BAT0"]
          [ "-t", "batt: <left>%"
