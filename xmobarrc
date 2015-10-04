@@ -13,29 +13,34 @@ Config
    , pickBroadest = False        -- default: False
    , persistent = True
    , hideOnStart = False
-   , iconRoot = "/home/dino/.xmonad/sm4tik-icon-pack/xbm"  -- default: "."
+   , iconRoot = "/home/dino/.xmonad/resources"  -- default: "."
    , allDesktops = True          -- default: True
    , overrideRedirect = False    -- default: True
    , commands =
       [ Run BatteryP ["BAT0"]
-         [ "-t", "<acstatus><left>%"
+         [ "-t", "<acstatus> <left>%"
          , "-L", "10", "-H", "80", "-p", "3"
          , "--"
          , "-L", "-15", "-H", "-5"
          , "-l", "red", "-m", "blue", "-h", "green"
-         , "-O", "<icon=ac_01.xbm/>"
-         , "-i", "<icon=ac_01.xbm/>"
-         , "-o", "<icon=bat_full_02.xbm/>"
+         , "-O", "<icon=ac.xbm/>"
+         , "-i", "<icon=ac.xbm/>"
+         , "-o", "<icon=batt_half.xbm/>"
          ] 600
       , Run CoreTemp
-         [ "-t", "<icon=temp.xbm/> <core0>C"
+         [ "-t", "<icon=temp.xbm/> <core0>°C"
          , "-L", "40", "-H", "60"
          , "-l", "lightblue", "-n", "gray90", "-h", "red"
          ] 50
       , Run Date "<icon=clock.xbm/> <fc=#ee9a00>%Y-%b-%0d %a %H:%M:%S</fc>" "date" 10
+      , Run DiskU
+         [ ("/", "<icon=diskette.xbm/><usedp>% used, <free> avail") ]
+         [ "-H", "85", "-h", "red"
+         , "-m", "1", "-p", "3"
+         ] 20
       , Run DynNetwork
          ["-L", "0", "-H", "32", "--normal", "green", "--high", "red"
-         , "-t", "<icon=net_wired.xbm/> <dev> <icon=net_down_03.xbm/><rx>KB <icon=net_up_03.xbm/><tx>KB"
+         , "-t", "<icon=network.xbm/> <dev> <icon=arrow_down.xbm/><rx>KB <icon=arrow_up.xbm/><tx>KB"
          ] 10
       , Run Memory ["-t","<icon=mem.xbm/> <usedratio>%"] 10
       , Run MultiCpu
@@ -43,7 +48,7 @@ Config
          , "-L", "3", "-H", "50", "--normal", "green", "--high", "red"
          ] 10
       , Run Weather "KRDU"
-         [ "-t", "KRDU: <tempF>F <rh>%"
+         [ "-t", "<icon=umbrella.xbm/> KRDU: <tempF>F <rh>%"
          , "-L", "34", "-H", "93"
          , "--normal", "green", "--high", "red", "--low", "lightblue"
          ] 36000
@@ -51,5 +56,5 @@ Config
    , sepChar = "%"
    , alignSep = "}{"
 
-   , template = "%multicpu% . %coretemp% . %memory% . %dynnetwork% }{ %battery% . %KRDU% . %date%"
+   , template = "%multicpu% . %coretemp% . %memory% . %disku% . %dynnetwork% }{ %battery% . %KRDU% . %date%"
    }
