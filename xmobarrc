@@ -13,29 +13,33 @@ Config
    , pickBroadest = False        -- default: False
    , persistent = True
    , hideOnStart = False
-   , iconRoot = "."              -- default: "."
+   , iconRoot = "/home/dino/.xmonad/sm4tik-icon-pack/xbm"  -- default: "."
    , allDesktops = True          -- default: True
    , overrideRedirect = False    -- default: True
    , commands =
       [ Run BatteryP ["BAT0"]
-         [ "-t", "batt: <left>%"
+         [ "-t", "<acstatus><left>%"
          , "-L", "10", "-H", "80", "-p", "3"
          , "--"
-         , "-O", "<fc=green>On</fc> - ", "-o", ""
          , "-L", "-15", "-H", "-5"
          , "-l", "red", "-m", "blue", "-h", "green"
+         , "-O", "<icon=ac_01.xbm/>"
+         , "-i", "<icon=ac_01.xbm/>"
+         , "-o", "<icon=bat_full_02.xbm/>"
          ] 600
       , Run CoreTemp
-         [ "-t", "<core0>C"
+         [ "-t", "<icon=temp.xbm/> <core0>C"
          , "-L", "40", "-H", "60"
          , "-l", "lightblue", "-n", "gray90", "-h", "red"
          ] 50
-      , Run Date "%Y-%b-%0d %a %H:%M:%S" "date" 10
+      , Run Date "<icon=clock.xbm/> <fc=#ee9a00>%Y-%b-%0d %a %H:%M:%S</fc>" "date" 10
       , Run DynNetwork
-         ["-L", "0", "-H", "32", "--normal", "green", "--high", "red"] 10
-      , Run Memory ["-t","mem: <usedratio>%"] 10
+         ["-L", "0", "-H", "32", "--normal", "green", "--high", "red"
+         , "-t", "<icon=net_wired.xbm/> <dev> <icon=net_down_03.xbm/><rx>KB <icon=net_up_03.xbm/><tx>KB"
+         ] 10
+      , Run Memory ["-t","<icon=mem.xbm/> <usedratio>%"] 10
       , Run MultiCpu
-         [ "-t", "cpu: <total0> <total1> <total2> <total3>"
+         [ "-t", "<icon=cpu.xbm/> <total0> <total1> <total2> <total3>"
          , "-L", "3", "-H", "50", "--normal", "green", "--high", "red"
          ] 10
       , Run Weather "KRDU"
@@ -47,5 +51,5 @@ Config
    , sepChar = "%"
    , alignSep = "}{"
 
-   , template = "%multicpu% * %coretemp% | %memory% | %dynnetwork% }{ %battery% | %KRDU% | <fc=#ee9a00>%date%</fc>"
+   , template = "%multicpu% . %coretemp% . %memory% . %dynnetwork% }{ %battery% . %KRDU% . %date%"
    }
