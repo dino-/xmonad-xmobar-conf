@@ -21,7 +21,7 @@ symlink can then be used to let xmobar find its config file. Do this:
 
     $ cd
     $ darcs clone http://hub.darcs.net/dino/xmonad-xmobar-conf .xmonad
-    $ ln -s .xmonad/xmobarrc .xmonbarrc
+    $ ln -s .xmonad/xmobarrc .xmobarrc
 
 You will then need to edit the `iconRoot` field in `.xmonad/xmobarrc`
 to reflect your home directory.
