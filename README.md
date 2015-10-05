@@ -3,7 +3,7 @@
 
 ## Synopsis
 
-My personal xmonad and xmobar configuration
+My personal xmonad and xmobar configuration (Haskell)
 
 
 ## Description
