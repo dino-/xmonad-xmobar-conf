@@ -18,37 +18,44 @@ Config
    , overrideRedirect = False    -- default: True
    , commands =
       [ Run BatteryP ["BAT0"]
-         [ "-t", "<acstatus> <left>%"
-         , "-L", "10", "-H", "80", "-p", "3"
+         [ "-t", "<acstatus> <left>%, <timeleft> rem"
+         , "-L", "20", "-l", "red"
          , "--"
-         , "-L", "-15", "-H", "-5"
-         , "-l", "red", "-m", "blue", "-h", "green"
          , "-O", "<icon=ac.xbm/>"
          , "-i", "<icon=ac.xbm/>"
          , "-o", "<icon=batt_half.xbm/>"
+         , "-m", "white"
+         , "-p", "green"  -- This appears to not be working on my X1 Carbon
          ] 600
       , Run CoreTemp
          [ "-t", "<icon=temp.xbm/> <core0>°C"
-         , "-L", "40", "-H", "60"
-         , "-l", "lightblue", "-n", "gray90", "-h", "red"
+         , "-H", "60", "-h", "red"
+         , "-L", "40", "-l", "lightblue"
+         , "-n", "white"
          ] 50
-      , Run Date "<icon=clock.xbm/> <fc=#ee9a00>%Y-%b-%0d %a %H:%M:%S</fc>" "date" 10
+      , Run Date
+         "<icon=clock.xbm/> <fc=#ee9a00>%Y-%b-%0d %a %H:%M:%S</fc>"
+         "date" 10
       , Run DiskU
-         [ ("/", "<icon=diskette.xbm/><usedp>% used, <free> avail") ]
+         [ ("/", "<icon=diskette.xbm/> <usedp>% used, <free> avail") ]
          [ "-H", "85", "-h", "red"
-         , "-m", "1", "-p", "3"
          ] 20
       , Run DynNetwork
-         ["-L", "0", "-H", "32", "--normal", "green", "--high", "red"
-         , "-t", "<icon=network.xbm/> <dev> <icon=arrow_down.xbm/><rx>KB <icon=arrow_up.xbm/><tx>KB"
+         [ "-t", "<icon=network.xbm/> <dev> <icon=arrow_down.xbm/><rx>KB <icon=arrow_up.xbm/><tx>KB"
+         , "-H", "3000000", "-h", "red"
+         , "-L", "0", "-l", "white"
          ] 10
-      , Run Memory ["-t","<icon=mem.xbm/> <usedratio>%"] 10
+      , Run Memory
+         [ "-t", "<icon=mem.xbm/> <usedratio>% used, <available>MB avail"] 10
       , Run MultiCpu
-         [ "-t", "<icon=cpu.xbm/> <total0> <total1> <total2> <total3>"
-         , "-L", "3", "-H", "50", "--normal", "green", "--high", "red"
+         [ "-t", "<icon=cpu.xbm/> % <total0> <total1> <total2> <total3>"
+         , "-p", "3"
+         , "-H", "50", "-h", "red"
+         , "-L", "3"
+         , "-n", "green"
          ] 10
       , Run Weather "KRDU"
-         [ "-t", "<icon=umbrella.xbm/> KRDU: <tempF>F <rh>%"
+         [ "-t", "<icon=umbrella.xbm/> KRDU: <tempF>°F <rh>% hum"
          , "-L", "34", "-H", "93"
          , "--normal", "green", "--high", "red", "--low", "lightblue"
          ] 36000
@@ -56,5 +63,5 @@ Config
    , sepChar = "%"
    , alignSep = "}{"
 
-   , template = "%multicpu% . %coretemp% . %memory% . %disku% . %dynnetwork% }{ %battery% . %KRDU% . %date%"
+   , template = "%multicpu% . %coretemp% . %memory% . %disku% }{ %dynnetwork% . %battery% . %KRDU% . %date%"
    }
