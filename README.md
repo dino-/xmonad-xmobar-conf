@@ -12,6 +12,10 @@ Because I use them together, I keep the configuration for both
 xmonad and xmobar in the same `.xmonad` directory. This is a repo
 of my work on these files.
 
+The Gimp XCF files in `util/resources` are the sources of the XBM
+bitmaps in `resources`. You can use these to work on artwork if
+you like.
+
 
 ## Getting it
 
