@@ -55,7 +55,7 @@ Config
          , "-n", "green"
          ] 10
       , Run Weather "KRDU"
-         [ "-t", "<icon=umbrella.xbm/> KRDU: <tempF>°F <rh>% hum"
+         [ "-t", "KRDU: <tempF>°F <rh>% hum"
          , "-L", "34", "-H", "93"
          , "--normal", "green", "--high", "red", "--low", "lightblue"
          ] 36000
@@ -63,5 +63,5 @@ Config
    , sepChar = "%"
    , alignSep = "}{"
 
-   , template = "%multicpu% . %coretemp% . %memory% . %disku% }{ %dynnetwork% . %battery% . %KRDU% . %date%"
+   , template = "%multicpu% . %coretemp% . %memory% . %disku% }{ %dynnetwork% . %battery% . <icon=umbrella.xbm/> %KRDU% . %date%"
    }
