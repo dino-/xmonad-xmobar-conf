@@ -1,12 +1,12 @@
 Config
-   { font = "xft:Inconsolata:size=11"
+   { font = "xft:Inconsolata:size=12"
    , additionalFonts = []        -- default: []
    , borderColor = "white"
    , border = NoBorder
    , bgColor = "black"
    , fgColor = "white"
    , alpha = 255                 -- default: 255
-   , position = Top
+   , position = TopSize C 100 26
    , textOffset = -1             -- default: -1
    , iconOffset = -1             -- default: -1
    , lowerOnStart = True
@@ -21,41 +21,41 @@ Config
          [ "-t", "<acstatus> <left>%, <timeleft> rem"
          , "-L", "20", "-l", "red"
          , "--"
-         , "-O", "<icon=ac.xbm/>"
-         , "-i", "<icon=ac.xbm/>"
-         , "-o", "<icon=batt_half.xbm/>"
+         , "-O", "<icon=battery-plug-icon_24.xpm/>"
+         , "-i", "<icon=battery-plug-icon_24.xpm/>"
+         , "-o", "<icon=battery-full-icon_24.xpm/>"
          , "-m", "white"
          , "-p", "green"  -- This appears to not be working on my X1 Carbon
          ] 600
       , Run CoreTemp
-         [ "-t", "<icon=temp.xbm/> <core0>°C"
+         [ "-t", "<icon=thermometer-icon_24.xpm/> <core0>°C"
          , "-H", "60", "-h", "red"
          , "-L", "40", "-l", "lightblue"
          , "-n", "white"
          ] 50
       , Run Date
-         "<icon=clock.xbm/> <fc=#ee9a00>%Y-%b-%0d %a %H:%M:%S</fc>"
+         "<icon=calendar-clock-icon_24.xpm/> <fc=#ee9a00>%Y-%b-%0d %a %H:%M:%S</fc>"
          "date" 10
       , Run DiskU
-         [ ("/", "<icon=diskette.xbm/> <usedp>% used, <free> avail") ]
+         [ ("/", "<icon=harddisk-icon_24.xpm/> <usedp>% used, <free> free") ]
          [ "-H", "85", "-h", "red"
          ] 20
       , Run DynNetwork
-         [ "-t", "<icon=network.xbm/> <dev> <icon=arrow_down.xbm/><rx>KB <icon=arrow_up.xbm/><tx>KB"
+         [ "-t", "<icon=network-icon_24.xpm/> <dev> <icon=actions-arrow-down-icon_24.xpm/><rx>KB <icon=actions-arrow-up-icon_24.xpm/><tx>KB"
          , "-H", "3000000", "-h", "red"
          , "-L", "0", "-l", "white"
          ] 10
       , Run Memory
-         [ "-t", "<icon=mem.xbm/> <usedratio>% used, <available>MB avail"] 10
+         [ "-t", "<icon=memory-icon_24.xpm/> <usedratio>% used, <available>M free"] 10
       , Run MultiCpu
-         [ "-t", "<icon=cpu.xbm/> % <total0> <total1> <total2> <total3>"
+         [ "-t", "<icon=gnome_cpu_24.xpm/> % <total0> <total1> <total2> <total3>"
          , "-p", "3"
          , "-H", "50", "-h", "red"
          , "-L", "3"
          , "-n", "green"
          ] 10
       , Run Weather "KRDU"
-         [ "-t", "KRDU: <tempF>°F <rh>% hum"
+         [ "-t", "KRDU: <tempF>°F <icon=drop-icon_24.xpm/><rh>%"
          , "-L", "34", "-H", "93"
          , "--normal", "green", "--high", "red", "--low", "lightblue"
          ] 36000
@@ -63,5 +63,5 @@ Config
    , sepChar = "%"
    , alignSep = "}{"
 
-   , template = "%multicpu% . %coretemp% . %memory% . %disku% }{ %dynnetwork% . %battery% . <icon=umbrella.xbm/> %KRDU% . %date%"
+   , template = "%multicpu% . %coretemp% . %memory% . %disku% }{ %dynnetwork% . %battery% . <icon=sun-rain-icon_24.xpm/> %KRDU% . %date%"
    }
