@@ -38,8 +38,7 @@ Config
          "date" 10
       , Run DiskU
          [ ("/", "<icon=harddisk-icon_24.xpm/> <usedp>% used, <free> free") ]
-         [ "-H", "85", "-h", "red"
-         ] 20
+         [] 20
       , Run DynNetwork
          [ "-t", "<icon=network-icon_24.xpm/> <dev> <icon=actions-arrow-down-icon_24.xpm/><rx>KB <icon=actions-arrow-up-icon_24.xpm/><tx>KB"
          , "-H", "3000000", "-h", "red"
