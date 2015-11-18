@@ -18,7 +18,7 @@ Config
    , overrideRedirect = False    -- default: True
    , commands =
       [ Run BatteryP ["BAT0"]
-         [ "-t", "<acstatus> <left>%, <timeleft> rem"
+         [ "-t", "<acstatus><left>%, <timeleft> rem"
          , "-L", "20", "-l", "red"
          , "--"
          , "-O", "<icon=battery-plug-icon_24.xpm/>"
@@ -28,7 +28,7 @@ Config
          , "-p", "green"  -- This appears to not be working on my X1 Carbon
          ] 600
       , Run CoreTemp
-         [ "-t", "<icon=thermometer-icon_24.xpm/> <core0>°C"
+         [ "-t", "<icon=thermometer-icon_24.xpm/><core0>°C"
          , "-H", "60", "-h", "red"
          , "-L", "40", "-l", "lightblue"
          , "-n", "white"
