@@ -41,8 +41,6 @@ Config
          [] 20
       , Run DynNetwork
          [ "-t", "<icon=network-icon_24.xpm/> <dev> <icon=actions-arrow-down-icon_24.xpm/><rx>KB <icon=actions-arrow-up-icon_24.xpm/><tx>KB"
-         , "-H", "3000000", "-h", "red"
-         , "-L", "0", "-l", "white"
          ] 10
       , Run Memory
          [ "-t", "<icon=memory-icon_24.xpm/> <usedratio>% used, <available>M free"] 10
