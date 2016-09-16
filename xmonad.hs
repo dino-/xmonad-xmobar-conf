@@ -158,9 +158,10 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- mod-shift-{w,e,r}, Move client to screen 1, 2, or 3
     --
     [((m .|. modm, key), screenWorkspace sc >>= flip whenJust (windows . f))
-        -- | (key, sc) <- zip [xK_w, xK_e, xK_r] [0..]
-         -- Swapped w and e because of confusion between nVidia settings for primary and what xmonad sees from xinerama/xrandr
-        | (key, sc) <- zip [xK_e, xK_w, xK_r] [0..]
+        -- This is normal
+        | (key, sc) <- zip [xK_w, xK_e, xK_r] [0..]
+        -- Swapped w and e because of confusion between nVidia settings for primary and what xmonad sees from xinerama/xrandr
+        -- | (key, sc) <- zip [xK_e, xK_w, xK_r] [0..]
         , (f, m) <- [(W.view, 0), (W.shift, shiftMask)]]
 
 
