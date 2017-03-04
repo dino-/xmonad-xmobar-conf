@@ -15,6 +15,7 @@ import qualified XMonad.StackSet as W
 import qualified Data.Map        as M
 
 -- Added by Dino
+import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
 import XMonad.Layout.MultiColumns
 import XMonad.Layout.Tabbed
@@ -281,15 +282,14 @@ myStartupHook = return ()
 ------------------------------------------------------------------------
 -- Now run xmonad with all the defaults we set up.
 
--- Run xmonad with the settings you specify. No need to modify this.
+-- Run xmonad with the settings you specify
 --
-main = xmonad defaults
+main = xmonad =<< statusBar "xmobar" xmobarPP toggleStrutsKey defaults
+toggleStrutsKey XConfig { XMonad.modMask = modMask } = (modMask, xK_b)
 
 -- A structure containing your configuration settings, overriding
 -- fields in the default config. Any you don't override, will
 -- use the defaults defined in xmonad/XMonad/Config.hs
---
--- No need to modify this.
 --
 defaults = defaultConfig {
       -- simple stuff
