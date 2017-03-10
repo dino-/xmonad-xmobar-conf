@@ -40,7 +40,7 @@ Config
          [ ("/", "<icon=harddisk-icon_24.xpm/> <usedp>% used, <free> free") ]
          [] 20
       , Run DynNetwork
-         [ "-t", "<icon=network-icon_24.xpm/> <dev> <icon=actions-arrow-down-icon_24.xpm/><rx>KB <icon=actions-arrow-up-icon_24.xpm/><tx>KB"
+         [ "-t", "<icon=network-icon_24.xpm/> <dev> <icon=actions-arrow-down-icon_24.xpm/><rx>KB <icon=actions-arrow-up-icon_24.xpm/><tx>KB . "
          ] 10
       , Run Memory
          [ "-t", "<icon=memory-icon_24.xpm/> <usedratio>% used, <available>M free"] 10
@@ -60,5 +60,5 @@ Config
    , sepChar = "%"
    , alignSep = "}{"
 
-   , template = "%multicpu% . %coretemp% . %memory% . %disku% }{ %dynnetwork% . %battery% . <icon=sun-rain-icon_24.xpm/> %KRDU% . %date%"
+   , template = "%multicpu% . %coretemp% . %memory% . %disku% }{ %dynnetwork%%battery% . <icon=sun-rain-icon_24.xpm/> %KRDU% . %date%"
    }
