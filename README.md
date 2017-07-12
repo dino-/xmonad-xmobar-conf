@@ -71,6 +71,19 @@ Licenses:
 - [LGPL](https://www.gnu.org/copyleft/lesser.html)
 
 
+## Building from source
+
+Around 2017-06-26 I experienced a build failure on Arch Linux with
+stale libraries in the default, systemwide ghc. There were linker
+errors in the `xmonad.errors` build log. Some searching brought
+me to [this page](https://bugs.archlinux.org/task/54561) and it
+may be good to keep this around, an "emergency" dynamic binary
+compilation command:
+
+      $ cd ~/.xmonad
+      $ ghc --make xmonad.hs -i -ilib -dynamic -fforce-recomp -main-is main -v0 -o xmonad-x86_64-linux
+
+
 ## Contact
 
 Dino Morelli <[dino@ui3.info](mailto:dino@ui3.info)>
