@@ -17,8 +17,6 @@ import XMonad.Layout.ThreeColumns
 
 --------------------------------------------------------------------------------
 main = do
-  spawn "xmobar" -- Start a task bar such as xmobar.
-
   -- Start xmonad using the main desktop configuration with a few
   -- simple overrides:
   xmonad $ desktopConfig
