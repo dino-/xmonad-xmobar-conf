@@ -82,7 +82,8 @@ myManageHook = composeOne
   [ className =? "Pidgin" -?> doFloat
   , className =? "XCalc"  -?> doFloat
   , className =? "mpv"    -?> doFloat
-  , isDialog              -?> doCenterFloat
+  , isDialog              -?> doFloat
+  -- , isDialog              -?> doCenterFloat
 
     -- Move transient windows to their parent:
   , transience
