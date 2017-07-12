@@ -46,6 +46,7 @@ for these files is as follows:
     ---------------------------------------------------------------------------------
     actions-arrow-down-icon_24.png   Oxygen Team          LGPL
     actions-arrow-up-icon_24.png     Oxygen Team          LGPL
+    arch-linux-icon_24.png           Fatcow Web Hosting   CC BY 4.0
     battery-full-icon_24.png         Fatcow Web Hosting   CC BY 4.0
     battery-plug-icon_24.png         Fatcow Web Hosting   CC BY 4.0
     calendar-clock-icon_24.png       paomedia             public domain
@@ -56,17 +57,22 @@ for these files is as follows:
     network-icon_24.png              Iconshock            free for non-commercial use
     sun-rain-icon_24.png             Fatcow Web Hosting   CC BY 4.0
     thermometer-icon_24.png          Aha-Soft             CC BY 4.0
+    ubuntu-icon-circle-white_24      Martz90              CC BY-NC-ND 4.0
+    ubuntu-icon-multi_24             Saki                 GPL
 
 Author pages, where available:
 
 - [Aha-Soft](http://www.aha-soft.com/)
 - [Double-J Design](http://www.doublejdesign.co.uk/)
 - [Fatcow Web Hosting](http://www.fatcow.com/free-icons)
+- [Martz90](http://martz90.deviantart.com/)
 - [paomedia](http://www.paomedia.com/)
+- [sa-ki](http://sa-ki.deviantart.com/)
 
 Licenses:
 
 - [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
+- [CC BY-NC-ND 4.0](https://creativecommons.org/licenses/by-nc-nd/4.0/)
 - [GPL](https://gnu.org/licenses/gpl.html)
 - [LGPL](https://www.gnu.org/copyleft/lesser.html)
 

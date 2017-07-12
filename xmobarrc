@@ -60,5 +60,5 @@ Config
    , sepChar = "%"
    , alignSep = "}{"
 
-   , template = "%multicpu% . %coretemp% . %memory% . %disku% }{ %dynnetwork%%battery% . <icon=sun-rain-icon_24.xpm/> %KRDU% . %date%"
+   , template = "<icon=arch-linux-icon_24.xpm/> %multicpu% . %coretemp% . %memory% . %disku% }{ %dynnetwork%%battery% . <icon=sun-rain-icon_24.xpm/> %KRDU% . %date%"
    }
