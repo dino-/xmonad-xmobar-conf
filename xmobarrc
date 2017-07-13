@@ -45,7 +45,7 @@ Config
       , Run Memory
          [ "-t", "<icon=memory-icon_24.xpm/> <usedratio>% used, <available>M free"] 10
       , Run MultiCpu
-         [ "-t", "<icon=gnome_cpu_24.xpm/> % <total0> <total1> <total2> <total3>"
+         [ "-t", "<icon=gnome_cpu_24.xpm/> <total0> <total1> <total2> <total3>"
          , "-p", "3"
          , "-H", "50", "-h", "red"
          , "-L", "3"
@@ -53,7 +53,7 @@ Config
          ] 10
       , Run StdinReader
       , Run Weather "KRDU"
-         [ "-t", "KRDU: <tempF>°F <icon=drop-icon_24.xpm/><rh>%"
+         [ "-t", "KRDU: <tempF>°F"
          , "-L", "34", "-H", "93"
          , "--normal", "green", "--high", "red", "--low", "lightblue"
          ] 36000
@@ -61,5 +61,5 @@ Config
    , sepChar = "%"
    , alignSep = "}{"
 
-   , template = "<icon=arch-linux-icon_24.xpm/> %multicpu% . %coretemp% . %memory% . %disku% . %StdinReader% }{ %dynnetwork%%battery% . <icon=sun-rain-icon_24.xpm/> %KRDU% . %date%"
+   , template = "%StdinReader% . %multicpu% . %coretemp% . %memory% . %disku% }{ %dynnetwork%%battery% . <icon=sun-rain-icon_24.xpm/> %KRDU% . %date%"
    }
