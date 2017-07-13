@@ -14,7 +14,8 @@ import XMonad
 import qualified XMonad.StackSet as W
 
 -- Added by Dino
-import XMonad.Hooks.DynamicLog ( statusBar, xmobarPP )
+import XMonad.Hooks.DynamicLog ( PP (ppLayout, ppSort, ppTitle
+   , ppTitleSanitize, ppVisible), statusBar, wrap )
 import XMonad.Hooks.ManageDocks
    ( ToggleStruts (..), avoidStruts, manageDocks )
 import XMonad.Hooks.ManageHelpers
@@ -26,6 +27,7 @@ import XMonad.Prompt ( XPPosition (Top), alwaysHighlight, font
    , position, promptBorderWidth )
 import XMonad.Prompt.ConfirmPrompt ( confirmPrompt )
 import XMonad.Prompt.Shell ( shellPrompt )
+import XMonad.Util.WorkspaceCompare ( getSortByXineramaRule )
 
 
 -- The preferred terminal program, which is used in a binding below and by
@@ -318,11 +320,22 @@ myLogHook = return ()
 myStartupHook = return ()
 
 ------------------------------------------------------------------------
+-- My custom stdin pretty-printer for xmobar. Only interested in
+-- workspaces at this time
+myPP = def
+   { ppLayout = const ""  -- Don't show the layout name
+   , ppSort = getSortByXineramaRule  -- Sort left/right screens on the left, non-empty workspaces after those
+   , ppTitle = const ""  -- Don't show the focused window's title
+   , ppTitleSanitize = const ""  -- Also about window's title
+   , ppVisible = wrap "(" ")"  -- Non-focused (but still visible) screen
+   }
+
+------------------------------------------------------------------------
 -- Now run xmonad with all the defaults we set up.
 
 -- Run xmonad with the settings you specify. No need to modify this.
 --
-main = xmonad =<< statusBar "xmobar" xmobarPP toggleStrutsKey defaults
+main = xmonad =<< statusBar "xmobar" myPP toggleStrutsKey defaults
 toggleStrutsKey XConfig { XMonad.modMask = modMask } = (modMask, xK_b)
 
 -- A structure containing your configuration settings, overriding

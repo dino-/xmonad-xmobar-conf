@@ -51,6 +51,7 @@ Config
          , "-L", "3"
          , "-n", "green"
          ] 10
+      , Run StdinReader
       , Run Weather "KRDU"
          [ "-t", "KRDU: <tempF>°F <icon=drop-icon_24.xpm/><rh>%"
          , "-L", "34", "-H", "93"
@@ -60,5 +61,5 @@ Config
    , sepChar = "%"
    , alignSep = "}{"
 
-   , template = "<icon=arch-linux-icon_24.xpm/> %multicpu% . %coretemp% . %memory% . %disku% }{ %dynnetwork%%battery% . <icon=sun-rain-icon_24.xpm/> %KRDU% . %date%"
+   , template = "<icon=arch-linux-icon_24.xpm/> %multicpu% . %coretemp% . %memory% . %disku% . %StdinReader% }{ %dynnetwork%%battery% . <icon=sun-rain-icon_24.xpm/> %KRDU% . %date%"
    }
