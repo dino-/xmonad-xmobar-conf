@@ -410,5 +410,6 @@ help = unlines
    , "mod-button3  Set the window to floating mode and resize by dragging"
    , ""
    , "-- Miscellaneous bindings"
+   , "mod-b                Toggle the status bar gap"
    , "mod-Shift-/ (mod-?)  Show this help dialog"
    ]
