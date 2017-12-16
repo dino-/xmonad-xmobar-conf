@@ -1,0 +1,12 @@
+# GHC build-specific files
+*.hi
+*.o
+
+# xmonad build artifacts
+prompt-history
+xmonad.errors
+xmonad.state
+xmonad-x86_64-linux
+
+# Vim swap files
+*.sw?
