@@ -33,9 +33,8 @@ Config
          , "-L", "40", "-l", "lightblue"
          , "-n", "white"
          ] 50
-      , Run Date
-         "<icon=calendar-clock-icon_24.xpm/> <fc=#ee9a00>%Y-%b-%0d %a %H:%M:%S</fc>"
-         "date" 10
+      , Run Date "<fc=#ee9a00>%Y-%b-%0d %a %H:%M:%S</fc>" "date" 10
+      , Run DateZone "<fc=lightblue>%H:%M Z</fc>" "" "GMT" "utc" 10
       , Run DiskU
          [ ("/", "<icon=harddisk-icon_24.xpm/> <usedp>% used, <free> free") ]
          [] 20
@@ -61,5 +60,5 @@ Config
    , sepChar = "%"
    , alignSep = "}{"
 
-   , template = "%StdinReader% . %multicpu% . %coretemp% . %memory% . %disku% }{ %dynnetwork%%battery% . <icon=sun-rain-icon_24.xpm/> %KRDU% . %date%"
+   , template = "%StdinReader% . %multicpu% . %coretemp% . %memory% . %disku% }{ %dynnetwork%%battery% . <icon=sun-rain-icon_24.xpm/> %KRDU% . <icon=calendar-clock-icon_24.xpm/> %utc% %date%"
    }
