@@ -171,6 +171,11 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
     -- launch XMonad app prompt
     , ((modm,               xK_p     ), shellPrompt myXPConfig)
+
+    -- Toggle mute of both Master and Headphone alsa outputs
+    -- Can see status of this on the keyboard mute (F1) key as well on the X1
+    -- Carbon 3rd gen
+    , ((modm,               xK_F1    ), spawn "amixer -q -D pulse sset Master toggle")
     ]
     ++
 
@@ -424,5 +429,6 @@ help = unlines
    , ""
    , "-- Miscellaneous bindings"
    , "mod-b                Toggle the status bar gap"
+   , "mod-F1               Toggle Master and Heaphone mute"
    , "mod-Shift-/ (mod-?)  Show this help dialog"
    ]
