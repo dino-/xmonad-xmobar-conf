@@ -173,9 +173,16 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm,               xK_p     ), shellPrompt myXPConfig)
 
     -- Toggle mute of both Master and Headphone alsa outputs
-    -- Can see status of this on the keyboard mute (F1) key as well on the X1
-    -- Carbon 3rd gen
     , ((modm,               xK_F1    ), spawn "amixer -q -D pulse sset Master toggle")
+
+    -- Decrease Master volume
+    , ((modm,               xK_F2    ), spawn "amixer -q sset Master 2%-")
+
+    -- Increase Master volume
+    , ((modm,               xK_F3    ), spawn "amixer -q sset Master 2%+")
+
+    -- Toggle microphone mute
+    , ((modm,               xK_F4    ), spawn "amixer -q sset Mic toggle")
     ]
     ++
 
@@ -409,8 +416,8 @@ help = unlines
    , "mod-t  Push window back into tiling; unfloat and re-tile it"
    , ""
    , "-- increase or decrease number of windows in the master area"
-   , "mod-comma  (mod-,)   Increment the number of windows in the master area"
-   , "mod-period (mod-.)   Deincrement the number of windows in the master area"
+   , "mod-comma  (mod-,)  Increment the number of windows in the master area"
+   , "mod-period (mod-.)  Deincrement the number of windows in the master area"
    , ""
    , "-- quit, or restart"
    , "mod-Shift-q  Quit xmonad"
@@ -427,8 +434,13 @@ help = unlines
    , "mod-button2  Raise the window to the top of the stack"
    , "mod-button3  Set the window to floating mode and resize by dragging"
    , ""
+   , "-- Sound mixer controls"
+   , "mod-F1  Toggle Master and Heaphone mute"
+   , "mod-F2  Decrease Master volume"
+   , "mod-F3  Increase Master volume"
+   , "mod-F4  Toggle microphone mute"
+   , ""
    , "-- Miscellaneous bindings"
    , "mod-b                Toggle the status bar gap"
-   , "mod-F1               Toggle Master and Heaphone mute"
    , "mod-Shift-/ (mod-?)  Show this help dialog"
    ]

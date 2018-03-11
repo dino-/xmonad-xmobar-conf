@@ -1,5 +1,5 @@
 Config
-   { font = "xft:Inconsolata:size=12"
+   { font = "xft:Inconsolata:size=11"
    , additionalFonts = []        -- default: []
    , borderColor = "white"
    , border = NoBorder
@@ -18,7 +18,7 @@ Config
    , overrideRedirect = False    -- default: True
    , commands =
       [ Run BatteryP ["BAT0"]
-         [ "-t", "<acstatus><left>%, <timeleft> rem"
+         [ "-t", "<acstatus><left>%"
          , "-L", "20", "-l", "red"
          , "--"
          , "-O", "<icon=battery-plug-icon_24.xpm/>"
@@ -42,7 +42,7 @@ Config
          [ "-t", "<icon=network-icon_24.xpm/> <dev> <icon=actions-arrow-down-icon_24.xpm/><rx>KB <icon=actions-arrow-up-icon_24.xpm/><tx>KB . "
          ] 10
       , Run Memory
-         [ "-t", "<icon=memory-icon_24.xpm/> <usedratio>% used, <available>M free"] 10
+         [ "-t", "<icon=memory-icon_24.xpm/> <available>/<total>"] 10
       , Run MultiCpu
          [ "-t", "<icon=gnome_cpu_24.xpm/> <total0> <total1> <total2> <total3>"
          , "-p", "3"
@@ -51,6 +51,8 @@ Config
          , "-n", "green"
          ] 10
       , Run StdinReader
+      , Run Volume "default" "Master" [ "-t", "<icon=actions-speaker-icon_24.xpm/> <volume>% <status>" ] 10
+      , Run Volume "default" "Mic" [ "-t", "<icon=microphone-icon_24.xpm/> <status>" ] 10
       , Run Weather "KRDU"
          [ "-t", "KRDU: <tempF>°F"
          , "-L", "34", "-H", "93"
@@ -60,5 +62,5 @@ Config
    , sepChar = "%"
    , alignSep = "}{"
 
-   , template = "%StdinReader% . %multicpu% . %coretemp% . %memory% . %disku% }{ %dynnetwork%%battery% . <icon=sun-rain-icon_24.xpm/> %KRDU% . <icon=calendar-clock-icon_24.xpm/> %utc% %date%"
+   , template = "%StdinReader% . %multicpu% . %coretemp% . %memory% . %disku% }{ %dynnetwork%%default:Master%%default:Mic% . %battery% . <icon=sun-rain-icon_24.xpm/> %KRDU% . <icon=calendar-clock-icon_24.xpm/> %utc% %date%"
    }
