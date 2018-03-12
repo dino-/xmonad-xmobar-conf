@@ -117,6 +117,7 @@ source code locally and have stack make a `stack.yaml` file first.
 
     $ stack unpack xmobar
     $ cd xmobar-0.25
+    $ stack init
     $ stack install --flag xmobar:with_alsa --flag xmobar:with_datezone --flag xmobar:with_xft --flag xmobar:with_xpm
 
 
