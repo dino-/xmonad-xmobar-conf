@@ -51,8 +51,18 @@ Config
          , "-n", "green"
          ] 10
       , Run StdinReader
-      , Run Volume "default" "Master" [ "-t", "<icon=actions-speaker-icon_24.xpm/> <volume>% <status>" ] 10
-      , Run Volume "default" "Mic" [ "-t", "<icon=microphone-icon_24.xpm/> <status>" ] 10
+      , Run Volume "default" "Master"
+        [ "-t", "<icon=actions-speaker-icon_24.xpm/> <volume>% <status>"
+        , "--"
+        , "-O", "1"
+        , "-o", "0"
+        ] 10
+      , Run Volume "default" "Mic"
+        [ "-t", "<icon=microphone-icon_24.xpm/> <status>"
+        , "--"
+        , "-O", "1"
+        , "-o", "0"
+        ] 10
       , Run Weather "KRDU"
          [ "-t", "KRDU: <tempF>°F"
          , "-L", "34", "-H", "93"
@@ -62,5 +72,5 @@ Config
    , sepChar = "%"
    , alignSep = "}{"
 
-   , template = "%StdinReader% . %multicpu% . %coretemp% . %memory% . %disku% }{ %dynnetwork%%default:Master%%default:Mic% . %battery% . <icon=sun-rain-icon_24.xpm/> %KRDU% . <icon=calendar-clock-icon_24.xpm/> %utc% %date%"
+   , template = "%StdinReader% . %multicpu% . %coretemp% . %memory% . %disku% }{ %dynnetwork%%default:Master% %default:Mic% . %battery% . <icon=sun-rain-icon_24.xpm/> %KRDU% . <icon=calendar-clock-icon_24.xpm/> %utc% %date%"
    }
