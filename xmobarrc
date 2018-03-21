@@ -42,7 +42,7 @@ Config
          [ "-t", "<icon=network-icon_24.xpm/> <dev> <icon=actions-arrow-down-icon_24.xpm/><rx>KB <icon=actions-arrow-up-icon_24.xpm/><tx>KB . "
          ] 10
       , Run Memory
-         [ "-t", "<icon=memory-icon_24.xpm/> <available>/<total>"] 10
+         [ "-t", "<icon=memory-icon_24.xpm/> <usedratio>% used, <available>M free"] 10
       , Run MultiCpu
          [ "-t", "<icon=gnome_cpu_24.xpm/> <total0> <total1> <total2> <total3>"
          , "-p", "3"
