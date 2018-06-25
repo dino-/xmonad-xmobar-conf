@@ -171,18 +171,6 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
     -- launch XMonad app prompt
     , ((modm,               xK_p     ), shellPrompt myXPConfig)
-
-    -- Toggle mute of both Master and Headphone alsa outputs
-    , ((modm,               xK_F1    ), spawn "amixer -q -D pulse sset Master toggle")
-
-    -- Decrease Master volume
-    , ((modm,               xK_F2    ), spawn "amixer -q sset Master 2%-")
-
-    -- Increase Master volume
-    , ((modm,               xK_F3    ), spawn "amixer -q sset Master 2%+")
-
-    -- Toggle microphone mute
-    , ((modm,               xK_F4    ), spawn "amixer -q sset Mic toggle")
     ]
     ++
 
@@ -433,12 +421,6 @@ help = unlines
    , "mod-button1  Set the window to floating mode and move by dragging"
    , "mod-button2  Raise the window to the top of the stack"
    , "mod-button3  Set the window to floating mode and resize by dragging"
-   , ""
-   , "-- Sound mixer controls"
-   , "mod-F1  Toggle Master and Heaphone mute"
-   , "mod-F2  Decrease Master volume"
-   , "mod-F3  Increase Master volume"
-   , "mod-F4  Toggle microphone mute"
    , ""
    , "-- Miscellaneous bindings"
    , "mod-b                Toggle the status bar gap"
