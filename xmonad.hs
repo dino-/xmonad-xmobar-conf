@@ -261,31 +261,25 @@ myLayout = avoidStruts $
 -- To match on the WM_NAME, you can use 'title' in the same way that
 -- 'className' and 'resource' are used below.
 --
-{-
-myManageHook = manageDocks <+> composeAll
-    [ className =? "MPlayer"        --> doFloat
-
-    -- Gimp has changed to include single-window mode
-    --, className =? "Gimp"           --> doFloat
-
-   , resource  =? "desktop_window" --> doIgnore
-   , resource  =? "kdesktop"       --> doIgnore
-   ]
--}
-
 myManageHook = manageDocks <+> composeOne
-  [ className =? "Pidgin" -?> doFloat
-  , className =? "XCalc"  -?> doFloat
-  , className =? "mpv"    -?> doFloat
-  , className =? "Godot"  -?> doFloat
+  -- None of these apps are installed on my system now
+  --[ className =? "Pidgin" -?> doFloat
+  --, className =? "XCalc"  -?> doFloat
+  --, className =? "mpv"    -?> doFloat
+  [ className =? "Godot"  -?> doFloat
 
-  -- Gimp has a single-window mode
-  --, className =? "Gimp"   -?> doFloat  -- Gimp has a single-window mode
+  -- Gimp now has a single-window mode
+  --, className =? "Gimp"   -?> doFloat
 
-  , isDialog              -?> doFloat
-  -- , isDialog              -?> doCenterFloat
+  -- Not sure what these used to do
+  --, resource  =? "desktop_window" --> doIgnore
+  --, resource  =? "kdesktop"       --> doIgnore
 
-    -- Move transient windows to their parent:
+  -- This turned out to be annoying
+  -- , isDialog -?> doCenterFloat
+  , isDialog -?> doFloat
+
+  -- Move transient windows to their parent:
   , transience
   ]
 
