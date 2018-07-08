@@ -277,6 +277,7 @@ myManageHook = manageDocks <+> composeOne
   [ className =? "Pidgin" -?> doFloat
   , className =? "XCalc"  -?> doFloat
   , className =? "mpv"    -?> doFloat
+  , className =? "Godot"  -?> doFloat
 
   -- Gimp has a single-window mode
   --, className =? "Gimp"   -?> doFloat  -- Gimp has a single-window mode
