@@ -169,6 +169,9 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- launch xscreensaver-command -lock
     , ((modm .|. shiftMask, xK_l     ), spawn "xscreensaver-command -lock")
 
+    -- launch xscreensaver-command -lock AND power the monitor down
+    , ((modm .|. controlMask, xK_l   ), spawn "xscreensaver-command -lock; sleep 1; xset dpms force off")
+
     -- launch XMonad app prompt
     , ((modm,               xK_p     ), shellPrompt myXPConfig)
     ]
