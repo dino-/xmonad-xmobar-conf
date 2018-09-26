@@ -16,6 +16,7 @@ import qualified XMonad.StackSet as W
 -- Added by Dino
 import XMonad.Hooks.DynamicLog ( PP (ppLayout, ppSort, ppTitle
    , ppTitleSanitize, ppVisible), statusBar, wrap )
+import XMonad.Hooks.EwmhDesktops ( fullscreenEventHook )
 import XMonad.Hooks.ManageDocks
    ( ToggleStruts (..), avoidStruts, manageDocks )
 import XMonad.Hooks.ManageHelpers
@@ -295,7 +296,9 @@ myManageHook = manageDocks <+> composeOne
 -- return (All True) if the default handler is to be run afterwards. To
 -- combine event hooks use mappend or mconcat from Data.Monoid.
 --
-myEventHook = mempty
+--myEventHook = mempty
+--myEventHook = fullscreenEventHook
+myEventHook = handleEventHook def <+> fullscreenEventHook
 
 ------------------------------------------------------------------------
 -- Status bars and logging
