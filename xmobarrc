@@ -1,5 +1,5 @@
 Config
-   { font = "xft:Inconsolata:size=12"
+   { font = "xft:DejaVuSansMono:size=10"
    , additionalFonts = []        -- default: []
    , borderColor = "white"
    , border = NoBorder
