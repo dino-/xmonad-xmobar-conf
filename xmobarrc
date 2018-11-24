@@ -33,6 +33,13 @@ Config
          , "-L", "40", "-l", "lightblue"
          , "-n", "white"
          ] 50
+      , Run Cpu
+         [ "-t", "<icon=gnome_cpu_24.xpm/> <total>%"
+         , "-p", "3"
+         , "-H", "50", "-h", "red"
+         , "-L", "3"
+         , "-n", "green"
+         ] 10
       , Run Date "<fc=#ee9a00>%Y-%b-%0d %a %H:%M:%S</fc>" "date" 10
       , Run DateZone "<fc=lightblue>%H:%M Z</fc>" "" "GMT" "utc" 10
       , Run DiskU
@@ -43,13 +50,6 @@ Config
          ] 10
       , Run Memory
          [ "-t", "<icon=memory-icon_24.xpm/> <usedratio>% used, <available>M free"] 10
-      , Run MultiCpu
-         [ "-t", "<icon=gnome_cpu_24.xpm/> <total0> <total1> <total2> <total3>"
-         , "-p", "3"
-         , "-H", "50", "-h", "red"
-         , "-L", "3"
-         , "-n", "green"
-         ] 10
       , Run StdinReader
       , Run Weather "KRDU"
          [ "-t", "KRDU: <tempF>°F"
@@ -60,5 +60,5 @@ Config
    , sepChar = "%"
    , alignSep = "}{"
 
-   , template = "%StdinReader% . %multicpu% . %coretemp% . %memory% . %disku% }{ %dynnetwork%%battery% . <icon=sun-rain-icon_24.xpm/> %KRDU% . <icon=calendar-clock-icon_24.xpm/> %utc% %date%"
+   , template = "%StdinReader% . %cpu% . %coretemp% . %memory% . %disku% }{ %dynnetwork%%battery% . <icon=sun-rain-icon_24.xpm/> %KRDU% . <icon=calendar-clock-icon_24.xpm/> %utc% %date%"
    }
