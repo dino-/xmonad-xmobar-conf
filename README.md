@@ -115,10 +115,9 @@ Example build command:
 If this fails to make a viable build plan, it may be necessary to get the
 source code locally and have stack make a `stack.yaml` file first.
 
-    $ stack unpack xmobar
-    $ cd xmobar-0.25
-    $ stack init
-    $ stack install --flag xmobar:with_alsa --flag xmobar:with_datezone --flag xmobar:with_xft --flag xmobar:with_xpm xmobar
+Get the source with `stack unpack` or from GitHub and then build with:
+
+    $ stack install --flag xmobar:with_datezone --flag xmobar:with_xft --flag xmobar:with_xpm xmobar
 
 
 ## Contact
