@@ -20,7 +20,9 @@ import XMonad.Hooks.EwmhDesktops ( fullscreenEventHook )
 import XMonad.Hooks.ManageDocks
    ( ToggleStruts (..), avoidStruts, manageDocks )
 import XMonad.Hooks.ManageHelpers
-   ( (-?>), composeOne, isDialog, transience )
+   -- Trying to get fullscreen games working, no luck yet
+   ( (-?>), composeOne, doCenterFloat, doFullFloat, isDialog, isFullscreen, transience )
+   -- ( (-?>), composeOne, isDialog, transience )
 import XMonad.Layout.MultiColumns ( multiCol )
 import XMonad.Layout.Tabbed ( simpleTabbed )
 import XMonad.Layout.ThreeColumns ( ThreeCol (ThreeCol, ThreeColMid) )
@@ -282,6 +284,10 @@ myManageHook = manageDocks <+> composeOne
   -- This turned out to be annoying
   -- , isDialog -?> doCenterFloat
   , isDialog -?> doFloat
+
+  -- Trying to get fullscreen games working, no luck yet
+  , isFullscreen -?> doFullFloat
+  , className =? "steam" -?> doCenterFloat
 
   -- Move transient windows to their parent:
   , transience
