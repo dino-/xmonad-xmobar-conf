@@ -16,13 +16,12 @@ import qualified XMonad.StackSet as W
 -- Added by Dino
 import XMonad.Hooks.DynamicLog ( PP (ppLayout, ppSort, ppTitle
    , ppTitleSanitize, ppVisible), statusBar, wrap )
-import XMonad.Hooks.EwmhDesktops ( fullscreenEventHook )
+import XMonad.Hooks.EwmhDesktops ( ewmh, fullscreenEventHook )
 import XMonad.Hooks.ManageDocks
    ( ToggleStruts (..), avoidStruts, manageDocks )
 import XMonad.Hooks.ManageHelpers
-   -- Trying to get fullscreen games working, no luck yet
-   ( (-?>), composeOne, doCenterFloat, doFullFloat, isDialog, isFullscreen, transience )
-   -- ( (-?>), composeOne, isDialog, transience )
+   -- ( (-?>), composeOne, doCenterFloat, isDialog, transience )
+   ( (-?>), composeOne, isDialog, transience )
 import XMonad.Layout.MultiColumns ( multiCol )
 import XMonad.Layout.Tabbed ( simpleTabbed )
 import XMonad.Layout.ThreeColumns ( ThreeCol (ThreeCol, ThreeColMid) )
@@ -285,10 +284,6 @@ myManageHook = manageDocks <+> composeOne
   -- , isDialog -?> doCenterFloat
   , isDialog -?> doFloat
 
-  -- Trying to get fullscreen games working, no luck yet
-  , isFullscreen -?> doFullFloat
-  , className =? "steam" -?> doCenterFloat
-
   -- Move transient windows to their parent:
   , transience
   ]
@@ -342,7 +337,7 @@ myPP = def
 
 -- Run xmonad with the settings you specify. No need to modify this.
 --
-main = xmonad =<< statusBar "xmobar" myPP toggleStrutsKey defaults
+main = xmonad =<< statusBar "xmobar" myPP toggleStrutsKey (ewmh defaults)
 toggleStrutsKey XConfig { XMonad.modMask = modMask } = (modMask, xK_b)
 
 -- A structure containing your configuration settings, overriding
