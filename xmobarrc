@@ -41,7 +41,10 @@ Config
          , "-n", "green"
          ] 10
       , Run Date "<fc=#ee9a00>%Y-%b-%0d %a %H:%M:%S</fc>" "date" 10
-      , Run DateZone "<fc=lightblue>%H:%M Z</fc>" "" "GMT" "utc" 10
+      -- , Run DateZone "<fc=lightblue>%H:%M Z</fc>" "" "GMT" "utc" 10
+      -- , Run DateZone "<fc=lightblue>%H:%M Z</fc>" "en_US" "GMT" "utc" 10
+      -- , Run DateZone "%H:%M Z" "en_US" "GMT" "utc" 10
+      -- , Run DateZone "%H:%M Z" "" "GMT" "utc" 10
       , Run DiskU
          [ ("/", "<icon=harddisk-icon_24.xpm/> <usedp>% used, <free> free") ]
          [] 20
@@ -60,5 +63,6 @@ Config
    , sepChar = "%"
    , alignSep = "}{"
 
-   , template = "%StdinReader% . %cpu% . %coretemp% . %memory% . %disku% }{ %dynnetwork%%battery% . <icon=sun-rain-icon_24.xpm/> %KRDU% . <icon=calendar-clock-icon_24.xpm/> %utc% %date%"
+   -- , template = "%StdinReader% . %cpu% . %coretemp% . %memory% . %disku% }{ %dynnetwork%%battery% . <icon=sun-rain-icon_24.xpm/> %KRDU% . <icon=calendar-clock-icon_24.xpm/> %utc% %date%"
+   , template = "%StdinReader% . %cpu% . %coretemp% . %memory% . %disku% }{ %dynnetwork%%battery% . <icon=sun-rain-icon_24.xpm/> %KRDU% . <icon=calendar-clock-icon_24.xpm/> %date%"
    }
