@@ -57,6 +57,8 @@ for these files is as follows:
     memory-icon_24.png               Double-J Design      CC BY 4.0
     microphone-icon_24.png           Creative Freedom     CC BY-ND 4.0
     network-icon_24.png              Iconshock            free for non-commercial use
+    places-mail-message-icon_24.png  Oxygen Team          LGPL
+    spam-icon_24.png                 Fatcow Web Hosting   CC BY 4.0
     sun-rain-icon_24.png             Fatcow Web Hosting   CC BY 4.0
     thermometer-icon_24.png          Aha-Soft             CC BY 4.0
     ubuntu-icon-circle-white_24      Martz90              CC BY-NC-ND 4.0
@@ -105,6 +107,7 @@ with some extra flags.
     -------------------------------------
     with_alsa       Volume command
     with_datezone   DateZone command
+    with_inotify    Mail command
     with_xft        Font support for xft
     with_xpm        Support for xpm icons
 
@@ -117,7 +120,7 @@ source code locally and have stack make a `stack.yaml` file first.
 
 Get the source with `stack unpack` or from GitHub and then build with:
 
-    $ stack install --flag xmobar:with_datezone --flag xmobar:with_xft --flag xmobar:with_xpm xmobar
+    $ stack install --flag xmobar:with_datezone --flag xmobar:with_inotify --flag xmobar:with_xft --flag xmobar:with_xpm xmobar
 
 
 ## Contact
