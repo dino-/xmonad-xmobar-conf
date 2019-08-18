@@ -113,14 +113,10 @@ with some extra flags.
 
 Example build command:
 
-    $ stack install --flag xmobar:with_alsa --flag xmobar:with_datezone --flag xmobar:with_xft --flag xmobar:with_xpm xmobar
+    $ stack install --flag xmobar:with_datezone --flag xmobar:with_inotify --flag xmobar:with_xft --flag xmobar:with_xpm xmobar
 
 If this fails to make a viable build plan, it may be necessary to get the
 source code locally and have stack make a `stack.yaml` file first.
-
-Get the source with `stack unpack` or from GitHub and then build with:
-
-    $ stack install --flag xmobar:with_datezone --flag xmobar:with_inotify --flag xmobar:with_xft --flag xmobar:with_xpm xmobar
 
 
 ## Contact
