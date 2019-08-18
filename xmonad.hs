@@ -14,6 +14,7 @@ import XMonad
 import qualified XMonad.StackSet as W
 
 -- Added by Dino
+import Graphics.X11.Types ( noModMask )
 import Graphics.X11.ExtraTypes.XF86
    ( xF86XK_MonBrightnessDown, xF86XK_MonBrightnessUp )
 import XMonad.Hooks.DynamicLog ( PP (ppLayout, ppSort, ppTitle
@@ -182,8 +183,8 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- control screen brightness
     -- These are the codes the function keys generate on my Lenovo X1 Carbon gen6
     -- xbacklight is in the xorg-xbacklight package in Arch
-    , ((0, xF86XK_MonBrightnessDown), spawn "xbacklight -dec 10")
-    , ((0, xF86XK_MonBrightnessUp  ), spawn "xbacklight -inc 10")
+    , ((noModMask, xF86XK_MonBrightnessDown), spawn "xbacklight -dec 10")
+    , ((noModMask, xF86XK_MonBrightnessUp  ), spawn "xbacklight -inc 10")
     ]
     ++
 
