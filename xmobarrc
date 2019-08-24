@@ -49,7 +49,7 @@ Config
          [ ("/", "<icon=harddisk-icon_24.xpm/> <usedp>% used, <free> free") ]
          [] 20
       , Run DynNetwork
-         [ "-t", "<icon=network-icon_24.xpm/> <dev> <icon=actions-arrow-down-icon_24.xpm/><rx>KB <icon=actions-arrow-up-icon_24.xpm/><tx>KB . "
+         [ "-t", "<icon=network-icon_24.xpm/> <icon=actions-arrow-down-icon_24.xpm/><rx>KB <icon=actions-arrow-up-icon_24.xpm/><tx>KB . "
          ] 10
       , Run Mail
         [ ( "<icon=places-mail-message-icon_24.xpm/> ", "~/.mail/Inbox")
