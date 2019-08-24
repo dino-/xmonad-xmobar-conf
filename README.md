@@ -50,14 +50,15 @@ for these files is as follows:
     arch-linux-icon_24.png           Fatcow Web Hosting   CC BY 4.0
     battery-full-icon_24.png         Fatcow Web Hosting   CC BY 4.0
     battery-plug-icon_24.png         Fatcow Web Hosting   CC BY 4.0
+    beer-icon_24.png                 Fatcow Web Hosting   CC BY 4.0
     calendar-clock-icon_24.png       paomedia             public domain
     drop-icon_24.png                 paomedia             public domain
     gnome_cpu_24.png                 AMAZIGH Aneglus      GPL
     harddisk-icon_24.png             Oxygen Team          LGPL
+    Mail-icon_24.png                 VisualPharm          Linkware
     memory-icon_24.png               Double-J Design      CC BY 4.0
     microphone-icon_24.png           Creative Freedom     CC BY-ND 4.0
     network-icon_24.png              Iconshock            free for non-commercial use
-    places-mail-message-icon_24.png  Oxygen Team          LGPL
     spam-icon_24.png                 Fatcow Web Hosting   CC BY 4.0
     sun-rain-icon_24.png             Fatcow Web Hosting   CC BY 4.0
     thermometer-icon_24.png          Aha-Soft             CC BY 4.0
@@ -73,6 +74,7 @@ Author pages, where available:
 - [Martz90](http://martz90.deviantart.com/)
 - [paomedia](http://www.paomedia.com/)
 - [sa-ki](http://sa-ki.deviantart.com/)
+- [VisualPharm](http://www.visualpharm.com/)
 
 Licenses:
 
@@ -81,6 +83,7 @@ Licenses:
 - [CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0/)
 - [GPL](https://gnu.org/licenses/gpl.html)
 - [LGPL](https://www.gnu.org/copyleft/lesser.html)
+- [Linkware](http://www.iconarchive.com/icons/visualpharm/must-have/License.txt)
 
 
 ## Build issues

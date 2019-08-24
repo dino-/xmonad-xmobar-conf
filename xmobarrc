@@ -52,7 +52,8 @@ Config
          [ "-t", "<icon=network-icon_24.xpm/> <icon=actions-arrow-down-icon_24.xpm/><rx>KB <icon=actions-arrow-up-icon_24.xpm/><tx>KB . "
          ] 10
       , Run Mail
-        [ ( "<icon=places-mail-message-icon_24.xpm/> ", "~/.mail/Inbox")
+        [ ( "<icon=Mail-icon_24.xpm/> ", "~/.mail/Inbox")
+        , ( "<icon=beer-icon_24.xpm/> ", "~/.mail/Drafts")
         , ( "<icon=spam-icon_24.xpm/> ", "~/.mail/spam")
         ] "mail"
       , Run Memory
@@ -67,7 +68,7 @@ Config
    , sepChar = "%"
    , alignSep = "}{"
 
-   -- , template = "%StdinReader% . %cpu% . %coretemp% . %memory% . %disku% . %mail% }{ %dynnetwork%%battery% . <icon=sun-rain-icon_24.xpm/> %KRDU% . <icon=calendar-clock-icon_24.xpm/> %utc% %date%"
+   , template = "%StdinReader% . %cpu% . %coretemp% . %memory% . %disku% }{ %mail% . %dynnetwork%%battery% . <icon=sun-rain-icon_24.xpm/> %KRDU% . <icon=calendar-clock-icon_24.xpm/> %date%"
    -- , template = "%StdinReader% . %cpu% . %coretemp% . %memory% . %disku% . %mail% }{ %dynnetwork%%battery% . <icon=sun-rain-icon_24.xpm/> %KRDU% . <icon=calendar-clock-icon_24.xpm/> %date%"
-   , template = "%StdinReader% . %cpu% . %coretemp% . %memory% . %disku% . %mail% }{ %dynnetwork%%battery% . <icon=sun-rain-icon_24.xpm/> %KRDU% . <icon=calendar-clock-icon_24.xpm/> %date%"
+   -- , template = "%StdinReader% . %cpu% . %coretemp% . %memory% . %disku% . %mail% }{ %dynnetwork%%battery% . <icon=sun-rain-icon_24.xpm/> %KRDU% . <icon=calendar-clock-icon_24.xpm/> %utc% %date%"
    }
