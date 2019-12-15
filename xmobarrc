@@ -69,6 +69,5 @@ Config
    , alignSep = "}{"
 
    , template = "%StdinReader% . %cpu% . %coretemp% . %memory% . %disku% }{ %mail% . %dynnetwork%%battery% . <icon=sun-rain-icon_24.xpm/> %KRDU% . <icon=calendar-clock-icon_24.xpm/> %date%"
-   -- , template = "%StdinReader% . %cpu% . %coretemp% . %memory% . %disku% . %mail% }{ %dynnetwork%%battery% . <icon=sun-rain-icon_24.xpm/> %KRDU% . <icon=calendar-clock-icon_24.xpm/> %date%"
-   -- , template = "%StdinReader% . %cpu% . %coretemp% . %memory% . %disku% . %mail% }{ %dynnetwork%%battery% . <icon=sun-rain-icon_24.xpm/> %KRDU% . <icon=calendar-clock-icon_24.xpm/> %utc% %date%"
+   -- , template = "%StdinReader% . %cpu% . %coretemp% . %memory% . %disku% }{ %mail% . %dynnetwork%%battery% . <icon=sun-rain-icon_24.xpm/> %KRDU% . <icon=calendar-clock-icon_24.xpm/> %utc% %date%"
    }
