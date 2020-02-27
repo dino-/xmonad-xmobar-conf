@@ -346,7 +346,9 @@ myPP = def
 
 -- Run xmonad with the settings you specify. No need to modify this.
 --
-main = xmonad =<< statusBar "xmobar" myPP toggleStrutsKey (ewmh defaults)
+-- main = xmonad =<< statusBar "xmobar" myPP toggleStrutsKey (ewmh defaults)
+-- Read somewhere that this may be more appropriate.
+main = xmonad . ewmh =<< statusBar "xmobar" myPP toggleStrutsKey defaults
 toggleStrutsKey XConfig { XMonad.modMask = modMask } = (modMask, xK_b)
 
 -- A structure containing your configuration settings, overriding
