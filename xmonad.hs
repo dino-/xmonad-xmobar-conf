@@ -25,6 +25,7 @@ import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.ManageHelpers
    -- ( (-?>), composeOne, doCenterFloat, isDialog, transience )
    ( (-?>), composeOne, isDialog, transience )
+import XMonad.Hooks.SetWMName ( setWMName )
 import XMonad.Layout.MultiColumns ( multiCol )
 import XMonad.Layout.Tabbed ( simpleTabbed )
 import XMonad.Layout.ThreeColumns ( ThreeCol (ThreeCol, ThreeColMid) )
@@ -328,7 +329,10 @@ myLogHook = return ()
 -- per-workspace layout choices.
 --
 -- By default, do nothing.
-myStartupHook = return ()
+-- myStartupHook = return ()
+-- 2020-05-11 Added specifically because of the black window contents problem
+-- with Java Swing apps.
+myStartupHook = setWMName "LG3D"
 
 ------------------------------------------------------------------------
 -- My custom stdin pretty-printer for xmobar. Only interested in
