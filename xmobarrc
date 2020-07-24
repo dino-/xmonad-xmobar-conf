@@ -17,7 +17,7 @@ Config
    , allDesktops = True          -- default: True
    , overrideRedirect = False    -- default: True
    , commands =
-      [ Run BatteryP ["BAT0"]
+      [ Run Battery
          [ "-t", "<acstatus><left>%"
          , "-L", "20", "-l", "red"
          , "--"
