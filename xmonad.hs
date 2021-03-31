@@ -101,7 +101,8 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     --, ((modm,               xK_p     ), spawn "dmenu_run")
 
     -- launch gmrun
-    , ((modm .|. shiftMask, xK_p     ), spawn "gmrun")
+    -- 2021-03-31 Don't have gmrun installed at this time
+    -- , ((modm .|. shiftMask, xK_p     ), spawn "gmrun")
 
     -- close focused window
     , ((modm .|. shiftMask, xK_c     ), kill)
@@ -113,10 +114,14 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm .|. shiftMask, xK_space ), setLayout $ XMonad.layoutHook conf)
 
     -- Resize viewed windows to the correct size
-    , ((modm,               xK_n     ), refresh)
+    -- 2021-03-31 This doesn't seem to do anything, commenting it out
+    -- , ((modm,               xK_n     ), refresh)
 
     -- Move focus to the next window
     , ((modm,               xK_Tab   ), windows W.focusDown)
+
+    -- Move focus to the previous window
+    , ((modm .|. shiftMask, xK_Tab   ), windows W.focusUp)
 
     -- Move focus to the next window
     , ((modm,               xK_j     ), windows W.focusDown)
@@ -394,12 +399,13 @@ help = unlines
    , "-- launching and killing programs"
    , "mod-Shift-Enter  Launch " ++ myTerminal
    , "mod-p            Launch shell prompt"
-   , "mod-Shift-p      Launch gmrun"
+   -- , "mod-Shift-p      Launch gmrun"
    , "mod-Shift-c      Close/kill the focused window"
    , "mod-Space        Rotate through the available layout algorithms"
    , "mod-Shift-Space  Reset the layouts on the current workSpace to default"
-   , "mod-n            Resize/refresh viewed windows to the correct size"
+   -- , "mod-n            Resize/refresh viewed windows to the correct size"
    , "mod-Shift-l      Lock workstation with xscreensaver"
+   , "mod-Ctrl-l       Lock workstation with xscreensaver and power monitors down"
    , ""
    , "-- move focus up or down the window stack"
    , "mod-Tab        Move focus to the next window"
