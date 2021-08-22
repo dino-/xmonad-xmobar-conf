@@ -17,6 +17,20 @@ Config
    , allDesktops = True          -- default: True
    , overrideRedirect = False    -- default: True
    , commands =
+      -- Version with a static on-battery icon
+      -- [ Run Battery
+      --    [ "-t", "<acstatus> <left>"
+      --    , "--"
+      --    , "-O", "<icon=fa6-plug-solid_24.xpm/>"
+      --    , "-i", "<icon=fa6-plug-solid_24.xpm/>"
+      --    , "-o", "<icon=fa6-battery-three-quarters-solid_24.xpm/>"
+      --    , "-L", "20", "-l", "red"
+      --    , "-H", "80", "-h", "green"
+      --    , "-m", "white"
+      --    , "-p", "green"  -- This appears to not be working on my X1 Carbon
+      --    , "-P"
+      --    ] 600
+      -- Version with different icons for better level ranges
       [ Run Battery
          [ "-t", "<acstatus> <left>"
          , "--"
@@ -47,8 +61,6 @@ Config
          ] 10
       , Run Date "<fc=#ee9a00>%Y-%b-%0d %a %H:%M:%S</fc>" "date" 10
       , Run DateZone "<fc=lightblue>%H:%M Z</fc>" "" "GMT" "utc" 10
-      -- 2021-08-19 Added to meet with an IOG representative online who is in this zone, and %ber% added to the template below
-      , Run DateZone "<fc=green>%H:%M UTC+2</fc>" "" "Europe/Berlin" "ber" 10
       , Run DiskU
          [ ("/", "<icon=fa6-hdd-solid_24.xpm/> <usedp>% used, <free> free") ]
          [] 20
@@ -72,7 +84,7 @@ Config
    , sepChar = "%"
    , alignSep = "}{"
 
-   , template = "%StdinReader% . %cpu% . %coretemp% . %memory% . %disku% }{ %mail% . %dynnetwork%%battery% . <icon=fa6-cloud-sun-rain-solid_24.xpm/> %KRDU% . <icon=fa6-clock-solid_24.xpm/> %utc% %ber% %date%"
+   , template = "%StdinReader% . %cpu% . %coretemp% . %memory% . %disku% }{ %mail% . %dynnetwork%%battery% . <icon=fa6-cloud-sun-rain-solid_24.xpm/> %KRDU% . <icon=fa6-clock-solid_24.xpm/> %utc% %date%"
    }
 
 -- vim:ft=haskell
