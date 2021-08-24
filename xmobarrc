@@ -40,7 +40,7 @@ Config
          , "-L", "20", "-l", "red"
          , "-H", "80", "-h", "green"
          , "-m", "white"
-         , "-p", "green"  -- This appears to not be working on my X1 Carbon
+         , "-p", "green"  -- This appears to not work on some systems (Lenovo X1, Legion)
          , "-P"
          , "--lows", "<icon=fa6-battery-quarter-solid_24.xpm/>"
          , "--mediums", "<icon=fa6-battery-half-solid_24.xpm/>"
