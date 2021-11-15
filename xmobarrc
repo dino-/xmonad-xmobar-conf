@@ -30,7 +30,7 @@ Config
       --    , "-p", "green"  -- This appears to not be working on my X1 Carbon
       --    , "-P"
       --    ] 600
-      -- Version with different icons for better level ranges
+      -- Version with different icons for battery level ranges
       [ Run Battery
          [ "-t", "<acstatus> <left>"
          , "--"
@@ -41,6 +41,7 @@ Config
          , "-H", "80", "-h", "green"
          , "-m", "white"
          , "-p", "green"  -- This appears to not work on some systems (Lenovo X1, Legion)
+         , "-f", "ACAD/online"  -- Specific to the Lenovo Legion Y740
          , "-P"
          , "--lows", "<icon=fa6-battery-quarter-solid_24.xpm/>"
          , "--mediums", "<icon=fa6-battery-half-solid_24.xpm/>"
