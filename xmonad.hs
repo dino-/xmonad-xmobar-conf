@@ -191,6 +191,9 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- xbacklight is in the xorg-xbacklight package in Arch
     , ((noModMask, xF86XK_MonBrightnessDown), spawn "xbacklight -dec 10")
     , ((noModMask, xF86XK_MonBrightnessUp  ), spawn "xbacklight -inc 10")
+
+    -- Lock mouse button 1 down. Note: xte is in arch package xautomation
+    , ((modm .|. shiftMask, xK_F1    ), spawn "xte \"mousedown 1\"")
     ]
     ++
 
