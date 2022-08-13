@@ -86,7 +86,7 @@ myXPConfig = def
   { position          = Top
   , alwaysHighlight   = True
   , promptBorderWidth = 0
-  , font              = "xft:DejaVuSansMono:size=10"
+  , font              = "xft:DejaVuSansMono:size=9"
   }
 
 ------------------------------------------------------------------------
