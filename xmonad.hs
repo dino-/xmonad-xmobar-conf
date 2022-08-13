@@ -192,8 +192,10 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((noModMask, xF86XK_MonBrightnessDown), spawn "xbacklight -dec 10")
     , ((noModMask, xF86XK_MonBrightnessUp  ), spawn "xbacklight -inc 10")
 
-    -- Lock mouse button 1 down. Note: xte is in arch package xautomation
-    , ((modm .|. shiftMask, xK_F1    ), spawn "xte \"mousedown 1\"")
+    -- Mouse button pressing and holding. Note: xte is in arch package xautomation
+    -- 2022-03-22 having some trouble with left click and modm, work on it some other time
+    -- , ((modm              , xK_F3    ), spawn "xte \"mouseclick 1\"")   -- left mouse button click
+    , ((modm .|. shiftMask, xK_F1    ), spawn "xte \"mousedown 1\"")    -- left mouse button lock
     ]
     ++
 
