@@ -19,7 +19,7 @@ import Graphics.X11.ExtraTypes.XF86
    ( xF86XK_MonBrightnessDown, xF86XK_MonBrightnessUp )
 import XMonad.Hooks.DynamicLog ( PP (ppLayout, ppSort, ppTitle
    , ppTitleSanitize, ppVisible), statusBar, wrap )
-import XMonad.Hooks.EwmhDesktops ( ewmh, fullscreenEventHook )
+import XMonad.Hooks.EwmhDesktops ( ewmhFullscreen )
 import XMonad.Hooks.ManageDocks
    ( ToggleStruts (..), avoidStruts, manageDocks )
 import XMonad.Hooks.ManageHelpers
@@ -318,8 +318,7 @@ myManageHook = manageDocks <+> composeOne
 -- combine event hooks use mappend or mconcat from Data.Monoid.
 --
 --myEventHook = mempty
---myEventHook = fullscreenEventHook
-myEventHook = handleEventHook def <+> fullscreenEventHook
+myEventHook = handleEventHook def
 
 ------------------------------------------------------------------------
 -- Status bars and logging
@@ -360,9 +359,7 @@ myPP = def
 
 -- Run xmonad with the settings you specify. No need to modify this.
 --
--- main = xmonad =<< statusBar "xmobar" myPP toggleStrutsKey (ewmh defaults)
--- Read somewhere that this may be more appropriate.
-main = xmonad . ewmh =<< statusBar "xmobar" myPP toggleStrutsKey defaults
+main = xmonad . ewmhFullscreen =<< statusBar "xmobar" myPP toggleStrutsKey defaults
 toggleStrutsKey XConfig { XMonad.modMask = modMask } = (modMask, xK_b)
 
 -- A structure containing your configuration settings, overriding
