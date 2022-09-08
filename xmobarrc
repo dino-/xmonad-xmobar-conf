@@ -41,18 +41,12 @@ Config
          , "-H", "80", "-h", "green"
          , "-m", "white"
          , "-p", "green"  -- This appears to not work on some systems (Lenovo X1, Legion)
-         , "-f", "ACAD/online"  -- Specific to the Lenovo Legion Y740
+         , "-f", "ACAD/online"  -- Specific to the Lenovo Legion series
          , "-P"
          , "--lows", "<icon=fa6-battery-quarter-solid_24.xpm/>"
          , "--mediums", "<icon=fa6-battery-half-solid_24.xpm/>"
          , "--highs", "<icon=fa6-battery-full-solid_24.xpm/>"
          ] 600
-      , Run CoreTemp
-         [ "-t", "<icon=fa6-thermometer-three-quarters-solid_24.xpm/> <core0>°C"
-         , "-H", "60", "-h", "red"
-         , "-L", "40", "-l", "lightblue"
-         , "-n", "white"
-         ] 50
       , Run Cpu
          [ "-t", "<icon=fa6-microchip-solid_24.xpm/> <total>%"
          , "-p", "3"
@@ -75,6 +69,13 @@ Config
         ] "mail"
       , Run Memory
          [ "-t", "<icon=fa6-memory-solid_24.xpm/> <usedratio>% used, <available>M free"] 10
+      , Run MultiCoreTemp
+         [ "-hwmonitor-path", "/sys/module/k10temp/drivers/pci:k10temp/0000:00:18.3/hwmon/hwmon5"
+         , "-t", "<icon=fa6-thermometer-three-quarters-solid_24.xpm/> <avg>°C"
+         , "-H", "60", "-h", "red"
+         , "-L", "40", "-l", "lightblue"
+         , "-n", "white"
+         ] 50
       , Run StdinReader
       , Run Weather "KRDU"
          [ "-t", "KRDU: <tempF>°F"
@@ -85,7 +86,7 @@ Config
    , sepChar = "%"
    , alignSep = "}{"
 
-   , template = "%StdinReader% . %cpu% . %coretemp% . %memory% . %disku% }{ %mail% . %dynnetwork%%battery% . <icon=fa6-cloud-sun-rain-solid_24.xpm/> %KRDU% . <icon=fa6-clock-solid_24.xpm/> %utc% %date%"
+   , template = "%StdinReader% . %cpu% . %multicoretemp% . %memory% . %disku% }{ %mail% . %dynnetwork%%battery% . <icon=fa6-cloud-sun-rain-solid_24.xpm/> %KRDU% . <icon=fa6-clock-solid_24.xpm/> %utc% %date%"
    }
 
 -- vim:ft=haskell
