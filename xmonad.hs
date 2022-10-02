@@ -189,13 +189,14 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- control screen brightness
     -- These are the codes the function keys generate on my Lenovo X1 Carbon gen6
     -- xbacklight is in the xorg-xbacklight package in Arch
-    , ((noModMask, xF86XK_MonBrightnessDown), spawn "xbacklight -dec 10")
-    , ((noModMask, xF86XK_MonBrightnessUp  ), spawn "xbacklight -inc 10")
+    -- , ((noModMask, xF86XK_MonBrightnessDown), spawn "xbacklight -dec 10")
+    -- , ((noModMask, xF86XK_MonBrightnessUp  ), spawn "xbacklight -inc 10")
 
     -- Mouse button pressing and holding. Note: xte is in arch package xautomation
-    -- 2022-03-22 having some trouble with left click and modm, work on it some other time
-    -- , ((modm              , xK_F3    ), spawn "xte \"mouseclick 1\"")   -- left mouse button click
-    , ((modm .|. shiftMask, xK_F1    ), spawn "xte \"mousedown 1\"")    -- left mouse button lock
+    , ((modm              , xK_F1    ), spawn "xte 'usleep 500000' 'mouseclick 1'")  -- left mouse button click
+    , ((modm .|. shiftMask, xK_F1    ), spawn "xte 'mousedown 1'")  -- left mouse button lock
+    , ((modm              , xK_F2    ), spawn "xte 'usleep 500000' 'mouseclick 2'")  -- middle mouse button click
+    , ((modm              , xK_F3    ), spawn "xte 'usleep 500000' 'mouseclick 3'")  -- right mouse button click
     ]
     ++
 
@@ -442,10 +443,14 @@ help = unlines
    , "mod-{w,e,r}        Switch to physical/Xinerama screens 1, 2, or 3"
    , "mod-Shift-{w,e,r}  Move client to screen 1, 2, or 3"
    , ""
-   , "-- Mouse bindings: default actions bound to mouse events"
-   , "mod-button1  Set the window to floating mode and move by dragging"
-   , "mod-button2  Raise the window to the top of the stack"
-   , "mod-button3  Set the window to floating mode and resize by dragging"
+   , "-- Mouse bindings: actions that are bound to or generate mouse events"
+   , "mod-button1   Set the window to floating mode and move by dragging left mouse button"
+   , "mod-button2   Raise the window to the top of the stack (middle button click)"
+   , "mod-button3   Set the window to floating mode and resize by dragging right mouse button"
+   , "mod-F1        Left mouse button click (button 1)"
+   , "mod-Shift-F1  Left mouse button lock (button 1)"
+   , "mod-F2        Middle mouse button click (button 2)"
+   , "mod-F3        Right mouse button click (button 3)"
    , ""
    , "-- Miscellaneous bindings"
    , "mod-b                Toggle the status bar gap"
